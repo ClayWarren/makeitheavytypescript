@@ -1,165 +1,103 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+# Dependencies
+node_modules/
 
-# C extensions
-*.so
-
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
+# Build output
 dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
+# Test coverage
+coverage/
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
-
-# Translations
-*.mo
-*.pot
-
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
-
-# Flask stuff:
-instance/
-.webassets-cache
-
-# Scrapy stuff:
-.scrapy
-
-# Sphinx documentation
-docs/_build/
-
-# PyBuilder
-target/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# IPython
-profile_default/
-ipython_config.py
-
-# pyenv
-.python-version
-
-# pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-#Pipfile.lock
-
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow
-__pypackages__/
-
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
-
-# SageMath parsed files
-*.sage.py
-
-# Environments
+# Environment variables
 .env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
+.env.local
+.env.production
 
-# Spyder project settings
-.spyderproject
-.spyproject
+# TypeScript
+*.tsbuildinfo
 
-# Rope project settings
-.ropeproject
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
 
-# mkdocs documentation
-/site
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
 
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
+# Coverage directory used by tools like istanbul
+lib-cov
 
-# Pyre type checker
-.pyre/
+# nyc test coverage
+.nyc_output
 
-# pytype static type analyzer
-.pytype/
+# Grunt intermediate storage
+.grunt
 
-# Cython debug symbols
-cython_debug/
+# Bower dependency directory
+bower_components
 
-# IDEs and editors
+# node-waf configuration
+.lock-wscript
+
+# Compiled binary addons
+build/Release
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# Next.js build output
+.next
+
+# Nuxt.js build / generate output
+.nuxt
+dist
+
+# Gatsby files
+.cache/
+public
+
+# Storybook build outputs
+.out
+.storybook-out
+
+# Temporary folders
+tmp/
+temp/
+
+# Editor directories and files
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
-
-# Vim
-*.swp
-*.swo
-.netrwhist
-
-# Emacs
-*~
-\#*\#
-/.emacs.desktop
-/.emacs.desktop.lock
-*.elc
-auto-save-list
-tramp
-.\#*
-
-# Sublime Text
-*.tmlanguage.cache
-*.tmPreferences.cache
-*.stTheme.cache
-*.sublime-workspace
-*.sublime-project
 
 # OS generated files
 .DS_Store
@@ -171,7 +109,6 @@ ehthumbs.db
 Thumbs.db
 
 # API keys and secrets
-.env
 *.key
 *.pem
 api_keys.txt
@@ -184,62 +121,3 @@ config_local.yaml
 config_production.yaml
 local_config.yaml
 *.local.yaml
-
-# Logs
-*.log
-logs/
-log/
-
-# Temporary files
-*.tmp
-*.temp
-temp/
-tmp/
-
-# Cache directories
-.cache/
-cache/
-__pycache__/
-
-# Node.js
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-dist/
-coverage/
-.env
-*.tsbuildinfo
-
-# Mac specific
-.AppleDouble
-.LSOverride
-
-# Windows specific
-Thumbs.db
-ehthumbs.db
-Desktop.ini
-$RECYCLE.BIN/
-
-# Linux specific
-.directory
-.Trash-*
-
-# JetBrains IDEs
-.idea/
-*.iml
-*.iws
-
-# VS Code
-.vscode/
-*.code-workspace
-
-# PyCharm
-.idea/
-
-# Project specific
-# Add any project-specific files/directories that should be ignored
-# For example:
-# data/
-# output/
-# results/ 
