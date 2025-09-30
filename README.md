@@ -1,14 +1,14 @@
-# 🚀 Make It heavy
+# 🚀 Make It Heavy (TypeScript)
 
-A Python framework to emulate **Grok heavy** functionality using a powerful multi-agent system. Built on OpenRouter's API, Make It heavy delivers comprehensive, multi-perspective analysis through intelligent agent orchestration.
+A TypeScript framework to emulate **Grok heavy** functionality using a powerful multi-agent system. Built on OpenRouter's API, Make It Heavy delivers comprehensive, multi-perspective analysis through intelligent agent orchestration.
 
 ## 🌟 Features
 
-- **🧠 Grok heavy Emulation**: Multi-agent system that delivers deep, comprehensive analysis like Grok heavy mode
+- **🧠 Grok Heavy Emulation**: Multi-agent system that delivers deep, comprehensive analysis like Grok heavy mode
 - **🔀 Parallel Intelligence**: Deploy 4 specialized agents simultaneously for maximum insight coverage
 - **🎯 Dynamic Question Generation**: AI creates custom research questions tailored to each query
 - **⚡ Real-time Orchestration**: Live visual feedback during multi-agent execution
-- **🛠️ Hot-Swappable Tools**: Automatically discovers and loads tools from the `tools/` directory
+- **🛠️ Hot-Swappable Tools**: Automatically discovers and loads tools from the `src/tools/` directory
 - **🔄 Intelligent Synthesis**: Combines multiple agent perspectives into unified, comprehensive answers
 - **🎮 Single Agent Mode**: Run individual agents for simpler tasks with full tool access
 
@@ -16,33 +16,25 @@ A Python framework to emulate **Grok heavy** functionality using a powerful mult
 
 ### Prerequisites
 
-- Python 3.8+
-- [uv](https://github.com/astral-sh/uv) (recommended Python package manager)
+- Node.js 18+
+- npm or yarn
 - OpenRouter API key
 
 ### Installation
 
-1. **Clone and setup environment:**
+1. **Clone and setup:**
 ```bash
-git clone <https://github.com/Doriandarko/make-it-heavy.git>
-cd "make it heavy"
-
-# Create virtual environment with uv
-uv venv
-
-# Activate virtual environment
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+git clone <repository-url>
+cd make-it-heavy-typescript
 ```
 
 2. **Install dependencies:**
 ```bash
-uv pip install -r requirements.txt
+npm install
 ```
 
 3. **Configure API key:**
-```bash
-# Edit config.yaml and replace YOUR API KEY HERE with your OpenRouter API key
-```
+Edit `config.yaml` and replace `YOUR KEY` with your OpenRouter API key.
 
 ## 🎯 Usage
 
@@ -51,7 +43,7 @@ uv pip install -r requirements.txt
 Run a single intelligent agent with full tool access:
 
 ```bash
-uv run main.py
+npm run dev
 ```
 
 **What it does:**
@@ -66,15 +58,15 @@ User: Research the latest developments in AI and summarize them
 Agent: [Uses search tool, analyzes results, provides summary]
 ```
 
-### Grok heavy Mode (Multi-Agent Orchestration)
+### Grok Heavy Mode (Multi-Agent Orchestration)
 
 Emulate Grok heavy's deep analysis with 4 parallel intelligent agents:
 
 ```bash
-uv run make_it_heavy.py
+npm run dev:heavy
 ```
 
-**How Make It heavy works:**
+**How Make It Heavy works:**
 1. **🎯 AI Question Generation**: Creates 4 specialized research questions from your query
 2. **🔀 Parallel Intelligence**: Runs 4 agents simultaneously with different analytical perspectives
 3. **⚡ Live Progress**: Shows real-time agent status with visual progress bars
@@ -115,21 +107,21 @@ graph TD
 
 ### Core Components
 
-#### 1. Agent System (`agent.py`)
+#### 1. Agent System (`src/agent.ts`)
 - **Self-contained**: Complete agent implementation with tool access
 - **Agentic Loop**: Continues working until task completion
 - **Tool Integration**: Automatic tool discovery and execution
 - **Configurable**: Uses `config.yaml` for all settings
 
-#### 2. Orchestrator (`orchestrator.py`)
+#### 2. Orchestrator (`src/orchestrator.ts`)
 - **Dynamic Question Generation**: AI creates specialized questions
 - **Parallel Execution**: Runs multiple agents simultaneously  
 - **Response Synthesis**: AI combines all agent outputs
 - **Error Handling**: Graceful fallbacks and error recovery
 
-#### 3. Tool System (`tools/`)
+#### 3. Tool System (`src/tools/`)
 - **Auto-Discovery**: Automatically loads all tools from directory
-- **Hot-Swappable**: Add new tools by dropping files in `tools/`
+- **Hot-Swappable**: Add new tools by creating files in `src/tools/`
 - **Standardized Interface**: All tools inherit from `BaseTool`
 
 ### Available Tools
@@ -178,37 +170,46 @@ search:
 
 ## 🔧 Development
 
+### Code Quality
+
+- **Linting**: Run `npm run lint` to check code quality with ESLint
+- **Linting with fixes**: Run `npm run lint:fix` to auto-fix issues
+- **Formatting**: Run `npm run format` to format code with Prettier
+- **Format check**: Run `npm run format:check` to verify formatting
+
 ### Adding New Tools
 
-1. Create a new file in `tools/` directory
+1. Create a new file in `src/tools/` directory
 2. Inherit from `BaseTool`
 3. Implement required methods:
 
-```python
-from .base_tool import BaseTool
+```typescript
+import { BaseTool, ToolResult } from './base-tool';
 
-class MyCustomTool(BaseTool):
-    @property
-    def name(self) -> str:
-        return "my_tool"
-    
-    @property
-    def description(self) -> str:
-        return "Description of what this tool does"
-    
-    @property
-    def parameters(self) -> dict:
-        return {
-            "type": "object",
-            "properties": {
-                "param": {"type": "string", "description": "Parameter description"}
-            },
-            "required": ["param"]
-        }
-    
-    def execute(self, param: str) -> dict:
-        # Tool implementation
-        return {"result": "success"}
+export class MyCustomTool extends BaseTool {
+  get name(): string {
+    return "my_tool";
+  }
+  
+  get description(): string {
+    return "Description of what this tool does";
+  }
+  
+  get parameters(): any {
+    return {
+      type: "object",
+      properties: {
+        param: { type: "string", description: "Parameter description" }
+      },
+      required: ["param"]
+    };
+  }
+  
+  async execute(param: string): Promise<ToolResult> {
+    // Tool implementation
+    return { result: "success" };
+  }
+}
 ```
 
 4. The tool will be automatically discovered and loaded!
@@ -243,7 +244,7 @@ orchestrator:
 User: "Analyze the impact of AI on software development in 2024"
 
 Single Agent: Comprehensive research report
-Grok heavy Mode: 4 specialized perspectives combined into deep, multi-faceted analysis
+Grok Heavy Mode: 4 specialized perspectives combined into deep, multi-faceted analysis
 ```
 
 ### Technical Question  
@@ -251,7 +252,7 @@ Grok heavy Mode: 4 specialized perspectives combined into deep, multi-faceted an
 User: "How do I optimize a React application for performance?"
 
 Single Agent: Step-by-step optimization guide
-Grok heavy Mode: Research + Analysis + Alternatives + Verification = Complete expert guide
+Grok Heavy Mode: Research + Analysis + Alternatives + Verification = Complete expert guide
 ```
 
 ### Creative Task
@@ -259,7 +260,7 @@ Grok heavy Mode: Research + Analysis + Alternatives + Verification = Complete ex
 User: "Create a business plan for an AI startup"
 
 Single Agent: Structured business plan
-Grok heavy Mode: Market research + Financial analysis + Competitive landscape + Risk assessment
+Grok Heavy Mode: Market research + Financial analysis + Competitive landscape + Risk assessment
 ```
 
 ## 🛠️ Troubleshooting
@@ -274,7 +275,7 @@ Solution: Update config.yaml with valid OpenRouter API key
 
 **Tool Import Error:**
 ```
-Error: Could not load tool from filename.py
+Error: Could not load tool
 Solution: Check tool inherits from BaseTool and implements required methods
 ```
 
@@ -290,34 +291,29 @@ Agent timeout errors
 Solution: Increase task_timeout in config.yaml
 ```
 
-### Debug Mode
-
-For detailed debugging, modify orchestrator to show synthesis process:
-
-```python
-# In orchestrator.py
-synthesis_agent = OpenRouterAgent(silent=False)  # Enable debug output
-```
-
 ## 📁 Project Structure
 
 ```
-make it heavy/
-├── main.py                 # Single agent CLI
-├── make_it_heavy.py         # Multi-agent orchestrator CLI  
-├── agent.py                # Core agent implementation
-├── orchestrator.py         # Multi-agent orchestration logic
-├── config.yaml             # Configuration file
-├── requirements.txt        # Python dependencies
-├── README.md               # This file
-└── tools/                  # Tool system
-    ├── __init__.py         # Auto-discovery system
-    ├── base_tool.py        # Tool base class
-    ├── search_tool.py      # Web search
-    ├── calculator_tool.py  # Math calculations  
-    ├── read_file_tool.py   # File reading
-    ├── write_file_tool.py  # File writing
-    └── task_done_tool.py   # Task completion
+make-it-heavy-typescript/
+├── src/                    # TypeScript source files
+│   ├── main.ts            # Single agent CLI
+│   ├── make-it-heavy.ts   # Multi-agent orchestrator CLI  
+│   ├── agent.ts           # Core agent implementation
+│   ├── orchestrator.ts    # Multi-agent orchestration logic
+│   ├── config.ts          # Configuration loader
+│   └── tools/             # Tool system
+│       ├── index.ts       # Auto-discovery system
+│       ├── base-tool.ts   # Tool base class
+│       ├── search-tool.ts # Web search
+│       ├── calculator-tool.ts # Math calculations  
+│       ├── read-file-tool.ts  # File reading
+│       ├── write-file-tool.ts # File writing
+│       └── task-done-tool.ts  # Task completion
+├── dist/                  # Compiled JavaScript output
+├── config.yaml            # Configuration file
+├── package.json           # Node.js dependencies
+├── tsconfig.json          # TypeScript configuration
+└── README.md              # This file
 ```
 
 ## 🤝 Contributing
@@ -332,14 +328,13 @@ make it heavy/
 
 MIT License with Commercial Attribution Requirement
 
-**For products with 100K+ users**: Please include attribution to Pietro Schirano and mention the "Make It heavy" framework in your documentation or credits.
+**For products with 100K+ users**: Please include attribution to Pietro Schirano and mention the "Make It Heavy" framework in your documentation or credits.
 
 See [LICENSE](LICENSE) file for full details.
 
 ## 🙏 Acknowledgments
 
 - Built with [OpenRouter](https://openrouter.ai/) for LLM API access
-- Uses [uv](https://github.com/astral-sh/uv) for Python package management
 - Inspired by **Grok heavy** mode and advanced multi-agent AI systems
 
 ---
@@ -347,9 +342,5 @@ See [LICENSE](LICENSE) file for full details.
 **Ready to make it heavy?** 🚀
 
 ```bash
-uv run make_it_heavy.py
+npm run dev:heavy
 ```
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=Doriandarko/make-it-heavy&type=Date)](https://www.star-history.com/#Doriandarko/make-it-heavy&Date)
