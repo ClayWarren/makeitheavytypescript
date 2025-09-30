@@ -1,10 +1,10 @@
 import { TaskOrchestrator } from './orchestrator';
 import { loadConfig } from './config';
 
-class OrchestratorCLI {
+export class OrchestratorCLI {
   private orchestrator: TaskOrchestrator;
-  private startTime: number | null = null;
-  private running: boolean = false;
+  public startTime: number | null = null;
+  public running: boolean = false;
 
   constructor() {
     const config = loadConfig();
@@ -23,7 +23,7 @@ class OrchestratorCLI {
     this.modelDisplay = cleanName.toUpperCase() + ' HEAVY';
   }
 
-  private modelDisplay: string;
+  public modelDisplay: string;
 
   clearScreen(): void {
     console.clear();
@@ -201,7 +201,7 @@ class OrchestratorCLI {
   }
 }
 
-async function main() {
+export async function main() {
   const cli = new OrchestratorCLI();
   await cli.interactiveMode();
 }

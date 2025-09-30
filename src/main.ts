@@ -1,7 +1,7 @@
 import { OpenRouterAgent } from './agent';
 import { loadConfig } from './config';
 
-async function main() {
+export async function main() {
   console.log('OpenRouter Agent with DuckDuckGo Search');
   console.log("Type 'quit', 'exit', or 'bye' to exit");
   console.log('-'.repeat(50));
