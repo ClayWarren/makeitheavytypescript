@@ -201,11 +201,15 @@ tmp/
 cache/
 __pycache__/
 
-# Node.js (if used for tooling)
+# Node.js
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+dist/
+coverage/
+.env
+*.tsbuildinfo
 
 # Mac specific
 .AppleDouble
