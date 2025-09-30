@@ -1,4 +1,4 @@
-import { BaseTool, ToolResult } from './base-tool';
+import { BaseTool, ToolResult, ToolParameters } from './base-tool';
 import * as fs from 'fs';
 
 export class ReadFileTool extends BaseTool {
@@ -14,7 +14,7 @@ export class ReadFileTool extends BaseTool {
     return 'Read the complete contents of a file from the file system. Handles various text encodings and provides detailed error messages if the file cannot be read.';
   }
 
-  get parameters(): Record<string, unknown> {
+  get parameters(): ToolParameters {
     return {
       type: 'object',
       properties: {

@@ -40,7 +40,8 @@ export class TaskOrchestrator {
 
     // Remove task completion tool to avoid issues
     questionAgent.tools = questionAgent.tools.filter(
-      (tool) => tool.function.name !== 'mark_task_complete'
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (tool: any) => tool.function.name !== 'mark_task_complete'
     );
     questionAgent.toolMapping.delete('mark_task_complete');
 
@@ -59,15 +60,15 @@ export class TaskOrchestrator {
       }
 
       return questions;
-     } catch {
-       // Fallback: create simple variations if AI fails
-       return [
-         `Research comprehensive information about: ${userInput}`,
-         `Analyze and provide insights about: ${userInput}`,
-         `Find alternative perspectives on: ${userInput}`,
-         `Verify and cross-check facts about: ${userInput}`,
-       ].slice(0, numAgents);
-     }
+    } catch {
+      // Fallback: create simple variations if AI fails
+      return [
+        `Research comprehensive information about: ${userInput}`,
+        `Analyze and provide insights about: ${userInput}`,
+        `Find alternative perspectives on: ${userInput}`,
+        `Verify and cross-check facts about: ${userInput}`,
+      ].slice(0, numAgents);
+    }
   }
 
   updateAgentProgress(agentId: number, status: string, result?: string): void {
@@ -122,10 +123,10 @@ export class TaskOrchestrator {
     const responses = successfulResults.map((r) => r.response);
 
     if (this.aggregationStrategy === 'consensus') {
-      return await this.aggregateConsensus(responses, successfulResults);
+      return await this.aggregateConsensus(responses);
     } else {
       // Default to consensus
-      return await this.aggregateConsensus(responses, successfulResults);
+      return await this.aggregateConsensus(responses);
     }
   }
 

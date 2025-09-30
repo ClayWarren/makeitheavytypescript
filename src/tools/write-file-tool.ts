@@ -1,4 +1,4 @@
-import { BaseTool, ToolResult } from './base-tool';
+import { BaseTool, ToolResult, ToolParameters } from './base-tool';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -15,7 +15,7 @@ export class WriteFileTool extends BaseTool {
     return 'Create a new file or completely overwrite an existing file with new content. Use with caution as it will overwrite existing files without warning.';
   }
 
-  get parameters(): Record<string, unknown> {
+  get parameters(): ToolParameters {
     return {
       type: 'object',
       properties: {

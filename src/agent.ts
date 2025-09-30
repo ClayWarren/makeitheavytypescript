@@ -34,12 +34,15 @@ export class OpenRouterAgent {
     }
   }
 
-  async callLLM(messages: Record<string, unknown>[]): Promise<Record<string, unknown>> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  async callLLM(messages: any[]): Promise<any> {
     try {
       const response = await this.client.chat.completions.create({
         model: this.config.openrouter.model,
-        messages,
-        tools: this.tools,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        messages: messages as any,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        tools: this.tools as any,
       });
       return response;
     } catch (error) {
@@ -47,7 +50,8 @@ export class OpenRouterAgent {
     }
   }
 
-  handleToolCall(toolCall: Record<string, unknown>): Record<string, unknown> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  handleToolCall(toolCall: any): Record<string, unknown> {
     try {
       // Extract tool name and arguments
       const toolName = toolCall.function.name;
@@ -82,7 +86,8 @@ export class OpenRouterAgent {
 
   async run(userInput: string): Promise<string> {
     // Initialize messages with system prompt and user input
-    const messages: Record<string, unknown>[] = [
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const messages: any[] = [
       {
         role: 'system',
         content: this.config.system_prompt,
@@ -107,7 +112,8 @@ export class OpenRouterAgent {
       }
 
       // Call LLM
-      const response = await this.callLLM(messages);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const response = (await this.callLLM(messages)) as any;
 
       // Add the response to messages
       const assistantMessage = response.choices[0].message;

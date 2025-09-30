@@ -1,4 +1,4 @@
-import { BaseTool, ToolResult } from './base-tool';
+import { BaseTool, ToolResult, ToolParameters } from './base-tool';
 
 export class TaskDoneTool extends BaseTool {
   constructor(private config: Record<string, unknown>) {
@@ -13,7 +13,7 @@ export class TaskDoneTool extends BaseTool {
     return "REQUIRED: Call this tool when the user's original request has been fully satisfied and you have provided a complete answer. This signals task completion and exits the agent loop.";
   }
 
-  get parameters(): Record<string, unknown> {
+  get parameters(): ToolParameters {
     return {
       type: 'object',
       properties: {

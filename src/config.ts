@@ -22,6 +22,7 @@ export interface Config {
     max_results: number;
     user_agent: string;
   };
+  [key: string]: unknown;
 }
 
 export function loadConfig(configPath: string = 'config.yaml'): Config {

@@ -74,13 +74,13 @@ npm run dev:heavy
 
 **Example Flow:**
 ```
-User Query: "Who is Pietro Schirano?"
+User Query: "Who is Clay Warren?"
 
 AI Generated Questions:
-- Agent 1: "Research Pietro Schirano's professional background and career history"
-- Agent 2: "Analyze Pietro Schirano's achievements and contributions to technology"  
-- Agent 3: "Find alternative perspectives on Pietro Schirano's work and impact"
-- Agent 4: "Verify and cross-check information about Pietro Schirano's current role"
+- Agent 1: "Research Clay Warren's professional background and career history"
+- Agent 2: "Analyze Clay Warren's achievements and contributions to technology"  
+- Agent 3: "Find alternative perspectives on Clay Warren's work and impact"
+- Agent 4: "Verify and cross-check information about Clay Warren's current role"
 
 Result: Grok heavy-style comprehensive analysis combining all agent perspectives
 ```
@@ -328,7 +328,7 @@ make-it-heavy-typescript/
 
 MIT License with Commercial Attribution Requirement
 
-**For products with 100K+ users**: Please include attribution to Pietro Schirano and mention the "Make It Heavy" framework in your documentation or credits.
+**For products with 100K+ users**: Please include attribution to Clay Warren and mention the "Make It Heavy (Typescript)" framework in your documentation or credits.
 
 See [LICENSE](LICENSE) file for full details.
 

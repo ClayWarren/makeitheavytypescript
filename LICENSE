@@ -1,6 +1,6 @@
 MIT License with Attribution Requirement for Large-Scale Commercial Use
 
-Copyright (c) 2025 Pietro Schirano
+Copyright (c) 2025 Clay Warren
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -16,8 +16,8 @@ ADDITIONAL COMMERCIAL ATTRIBUTION REQUIREMENT:
 If you use this Software, in whole or in part, in any product, service, or 
 application that serves more than 100,000 users, you must:
 
-1. Provide clear attribution to Pietro Schirano as the original creator
-2. Include a statement that your product uses the "Make It heavy" framework
+1. Provide clear attribution to Clay Warren as the original creator
+2. Include a statement that your product uses the "Make It Heavy (Typescript)" framework
 3. This attribution must be visible in one of the following locations:
    - Product documentation
    - About page/section
@@ -25,8 +25,8 @@ application that serves more than 100,000 users, you must:
    - Help/support documentation
    - Or equivalent user-accessible location
 
-Example attribution: "Powered by Make It heavy framework by Pietro Schirano"
-or "Uses Make It heavy multi-agent system created by Pietro Schirano"
+Example attribution: "Powered by Make It Heavy (Typescript) framework by Clay Warren"
+or "Uses Make It Heavy (Typescript) multi-agent system created by Clay Warren"
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,

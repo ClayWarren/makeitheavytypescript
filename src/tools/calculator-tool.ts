@@ -1,4 +1,4 @@
-import { BaseTool, ToolResult } from './base-tool';
+import { BaseTool, ToolResult, ToolParameters } from './base-tool';
 import * as math from 'mathjs';
 
 export class CalculatorTool extends BaseTool {
@@ -14,7 +14,7 @@ export class CalculatorTool extends BaseTool {
     return 'Perform mathematical calculations and evaluations';
   }
 
-  get parameters(): Record<string, unknown> {
+  get parameters(): ToolParameters {
     return {
       type: 'object',
       properties: {

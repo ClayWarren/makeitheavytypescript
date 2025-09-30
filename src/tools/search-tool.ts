@@ -1,4 +1,4 @@
-import { BaseTool, ToolResult } from './base-tool';
+import { BaseTool, ToolResult, ToolParameters } from './base-tool';
 import axios from 'axios';
 import * as cheerio from 'cheerio';
 
@@ -15,7 +15,7 @@ export class SearchTool extends BaseTool {
     return 'Search the web using DuckDuckGo for current information';
   }
 
-  get parameters(): Record<string, unknown> {
+  get parameters(): ToolParameters {
     return {
       type: 'object',
       properties: {
@@ -41,7 +41,8 @@ export class SearchTool extends BaseTool {
       const response = await axios.get(searchUrl, {
         headers: {
           'User-Agent':
-            this.config.search?.user_agent ||
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            (this.config as any).search?.user_agent ||
             'Mozilla/5.0 (compatible; OpenRouter Agent)',
         },
         timeout: 10000,
@@ -65,9 +66,9 @@ export class SearchTool extends BaseTool {
         })
         .get();
 
-      return simplifiedResults;
+      return { results: simplifiedResults };
     } catch (error) {
-      return [{ error: `Search failed: ${(error as Error).message}` }];
+      return { error: `Search failed: ${(error as Error).message}` };
     }
   }
 }
