@@ -7,7 +7,7 @@
 - Build project: `npm run build`
 - Linting: `npm run lint` (ESLint) and `npm run lint:fix` for auto-fixes
 - Formatting: `npm run format` (Prettier) and `npm run format:check` for checks
-- No explicit tests found; use `jest` or `vitest` if tests are added.
+- Tests are implemented using Vitest; run with `npm test`.
 
 ## Code Style Guidelines
 - **Imports**: Place at top of file, external libraries first, then local imports.

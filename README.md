@@ -177,6 +177,11 @@ search:
 - **Formatting**: Run `npm run format` to format code with Prettier
 - **Format check**: Run `npm run format:check` to verify formatting
 
+### Testing
+
+- **Run tests**: Run `npm test` to execute the test suite with Vitest
+- **Run tests with coverage**: Run `npx vitest run --coverage` to check test coverage
+
 ### Adding New Tools
 
 1. Create a new file in `src/tools/` directory
